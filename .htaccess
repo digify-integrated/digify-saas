@@ -1,0 +1,34 @@
+# Disable directory browsing
+Options -Indexes
+
+# Prevent access to core directories and sensitive files
+<FilesMatch "^(\.env|composer\.json|composer\.lock|\.htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<Directory "core">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+<Directory "app">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+<Directory "config">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+<Directory "routes">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+# Deny access to vendor (even though it's gitignored, it's still on the server)
+<Directory "vendor">
+    Order allow,deny
+    Deny from all
+</Directory>

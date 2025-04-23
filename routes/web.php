@@ -1,14 +1,8 @@
 <?php
 
-use App\Core\Router;
+use App\Controllers\HomeController;
+use App\Controllers\UserController;
 
-// Use singleton instance
-$router = Router::getInstance();
-
-$router->get('/login', 'UserController@showLoginForm', [], 'login');
-$router->post('/login', 'UserController@login', [], 'login.submit');
-
-$router->get('/register', 'UserController@showRegisterForm', [], 'register');
-$router->post('/register', 'UserController@register', [], 'register.submit');
-
-$router->get('/forgot-password', 'UserController@showForgotPasswordForm', [], 'forgot-password');
+$router->get('/', [HomeController::class, 'index']);
+$router->get('/users/{id}', [UserController::class, 'show']);
+$router->post('/submit', [HomeController::class, 'submit']);

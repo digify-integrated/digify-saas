@@ -1,15 +1,20 @@
 {
-    "name": "digify/digify-saas",
-    "description": "Modular SaaS platform using vanilla PHP",
+    "name": "digify/saas-framework",
+    "description": "A Laravel-like PHP framework using vanilla PHP.",
     "type": "project",
-    "license": "MIT",
+    "require": {},
     "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        },
-        "files": [
-            "app/helpers.php"
-        ]
+      "psr-4": {
+        "App\\": "app/",
+        "Core\\": "core/"
+      }
     },
-    "require": {}
-}
+    "scripts": {
+      "post-autoload-dump": [
+        "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      ]
+    },
+    "minimum-stability": "stable",
+    "license": "MIT"
+  }
+  
